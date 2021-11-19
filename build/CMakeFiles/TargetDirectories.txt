@@ -1,0 +1,3 @@
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/build/CMakeFiles/app.dir

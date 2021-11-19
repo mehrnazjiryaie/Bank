@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.cpp
+
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/main.cpp
+iostream
+-
+

@@ -1,33 +1,73 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
+//#include <sstream>
 using namespace std;
 
-typedef unsigned int ui;
+typedef unsigned int ui; // convert unsigned int into ui
 
 int main(int argc, char const *argv[])
 {
-
-    string command = "";
+    cout << "WELCOME TO GHOZAH BANK\n"; //بانك قُــزَه
+    vector<customer> customer;          // costumer is a class(user defined type)
 
     while (1)
     {
+        string str = "";
+        string command = "";  // customer request
+        string username = ""; // account username
+        string ip = "";       // account ip
 
-        string command;
-        getline(cin, command);
+        cout << "Enter your request:\n";
+        getline(cin, str);
+        size_t i = 0;
 
-        istringstream iss(command);
-        string word;
-
-        while (iss >> word)
+        while (str[i] != ' ' && str[i])
         {
-            if (word == "create")
-            {
-                cout << "hello\n";
-            }
-            
+            command += str[i];
+            i++;
         }
+
+        i++;
+
+        while (str[i] != ':' && str[i])
+        {
+            username += str[i];
+            i++;
+        }
+
+        i++;
+
+        while (str[i])
+        {
+            ip += str[i];
+            i++;
+        }
+
+        // cout << "command:" << command << endl;
+        // cout << "username :" << username << endl;
+        // cout << "ip :" << ip << endl;
+
+        if (command == "create")
+        {
+            customer account(/*constructor*/); // create an object of class customer
+            customer.push_back(account);
+        }
+
+        // string command;
+        // getline(cin, command);
+
+        // istringstream iss(command);
+        // string word;
+
+        // while (iss >> word)
+        // {
+        //     if (word == "create")
+        //     {
+        //         cout <<
+        //     }
+
+        // }
 
         // getline(cin, command);
         // cin.ignore();

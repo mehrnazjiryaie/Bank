@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cstring>
+#include <string>
+#include <sstream>
 using namespace std;
 
 typedef unsigned int ui;
@@ -12,24 +13,49 @@ int main(int argc, char const *argv[])
 
     while (1)
     {
-        cin.ignore();
+
+        string command;
         getline(cin, command);
 
-        vector<string> order;
-        size_t i = 0;
+        istringstream iss(command);
+        string word;
 
-        string word = "";
-
-        while (command[i] != '\0')
+        while (iss >> word)
         {
-            word += command[i];
-            if (command[i] != ' ')
+            if (word == "create")
             {
-                order.push_back(word);
-                cout << order[i] << endl;
+                cout << "hello\n";
             }
-            i++;
+            
         }
+
+        // getline(cin, command);
+        // cin.ignore();
+        // cout << command << endl;
+
+        // vector<string> order;
+        // size_t i = 0;
+        // size_t j = 0;
+
+        // string word = "";
+        // while (command[i] != '\0')
+        // {
+        //     word += command[i];
+        //     cout << command << endl;
+        //     if (command[i] == ' ')
+        //     {
+        //         order.push_back(word);
+        //         cout << order[j] << endl;
+        //         j++;
+        //         word = "";
+        //     }
+        //     i++;
+        // }
+
+        // if (order[0] == "create ")
+        // {
+        //     cout << "hello\n";
+        // }
 
         // size_t found1 = command.find("create");
         // if (found1 != string ::npos)

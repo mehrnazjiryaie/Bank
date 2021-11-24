@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "Bank.h"
 //#include <sstream>
 using namespace std;
 
@@ -9,7 +10,7 @@ typedef unsigned int ui; // convert unsigned int into ui
 int main(int argc, char const *argv[])
 {
     cout << "WELCOME TO GHOZAH BANK\n"; //بانك قُــزَه
-    vector<customer> customer;          // costumer is a class(user defined type)
+    vector<customer> moshtari;          // costumer is a class(user defined type)
 
     while (1)
     {
@@ -50,8 +51,8 @@ int main(int argc, char const *argv[])
 
         if (command == "create")
         {
-            customer account(/*constructor*/); // create an object of class customer
-            customer.push_back(account);
+            customer account(username, ip); // create an object of class customer
+            moshtari.push_back(account);
         }
 
         // string command;

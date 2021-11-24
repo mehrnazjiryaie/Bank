@@ -6,13 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/main.cpp
+../include/Bank.h
 iostream
 -
 vector
 -
-string
+
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.cpp
+iostream
 -
-sstream
--
+Bank.h
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.h
 

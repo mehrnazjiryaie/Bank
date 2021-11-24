@@ -51,8 +51,25 @@ int main(int argc, char const *argv[])
 
         if (command == "create")
         {
-            customer account(username, ip); // create an object of class customer
-            moshtari.push_back(account);
+            try
+            {
+                customer account(username, ip); // create an object of class customer
+                cout << "hello\n";
+                moshtari.push_back(account);
+            }
+            catch (int num)
+            {
+                cerr << "Invalid username!! - username must start with a letter.\n";
+            }
+
+            catch (...)
+            {
+                cout << "Invalid username!! - username must include upper case or lower case or unsigned integer numbers\n";
+            }
+        }
+        for (size_t i = 0; i < moshtari.size(); i++)
+        {
+            cout << moshtari[i].get_username() << endl;
         }
 
         // string command;

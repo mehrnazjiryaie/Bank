@@ -5,7 +5,7 @@
 #include "Bank.h"
 using namespace std;
 
-MyException::MyException(const char *err) {}
+//MyException::MyException(const char *err) {}
 
 customer::customer(string UN, string IP) // constructor with two parameter
     : username(UN), ip(IP)
@@ -16,7 +16,7 @@ customer::customer(string UN, string IP) // constructor with two parameter
         {
             if (UN == usernames[i])
             {
-                throw MyException("Repeated username!! - try another username.\n");
+                throw("Repeated username!! - try another username.\n");
             }
         }
     }

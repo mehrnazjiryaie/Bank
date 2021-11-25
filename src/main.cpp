@@ -61,9 +61,9 @@ int main(int argc, char const *argv[])
                 cout << "Invalid username!! - username must include upper case or lower case or unsigned integer numbers.\n";
             }
 
-            catch (const MyException &ex)
+            catch (string e)
             {
-                cout << ex.what() << endl;
+                cout << e << endl;
             }
         }
 

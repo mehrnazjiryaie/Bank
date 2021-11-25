@@ -17,6 +17,20 @@ iostream
 -
 ctype.h
 -
+exception
+-
+random
+-
+Bank.h
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.h
+
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/main.cpp
+iostream
+-
+vector
+-
+string
+-
 Bank.h
 /mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.h
 

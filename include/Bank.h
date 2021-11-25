@@ -2,6 +2,8 @@
 #define BANK_H
 #include <iostream>
 
+// std::vector<std::string> usernames; // a vector for save all of accounts names
+// bool is_Empty = true;
 class customer
 {
 private:
@@ -18,9 +20,6 @@ public:
     ~customer();
     std::string get_username();
 };
-
-std::vector<std::string> usernames; // a vector for save all of accounts names
-bool is_Empty = true;
 
 // class MyException : public std::exception
 // {

@@ -10,6 +10,12 @@
 iostream
 -
 
+../include/include.h
+iostream
+-
+vector
+-
+
 /mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.cpp
 iostream
 -
@@ -21,6 +27,8 @@ random
 -
 Bank.h
 /mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.h
+include.h
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/include.h
 
 /mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/main.cpp
 iostream
@@ -31,4 +39,6 @@ string
 -
 Bank.h
 /mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.h
+include.h
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/include.h
 

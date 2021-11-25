@@ -2,7 +2,11 @@
 #include <vector>
 #include <string>
 #include "Bank.h"
+
 using namespace std;
+
+// std::vector<std::string> usernames; // a vector for save all of accounts names
+// bool is_Empty = true;
 
 int main(int argc, char const *argv[])
 {
@@ -49,7 +53,7 @@ int main(int argc, char const *argv[])
                 customer account(username, ip); // create an object of class customer
                 moshtari.push_back(account);
                 cout << "Your account has created successfully!!\n";
-                usernames.push_back(username);
+                //usernames.push_back(username);
             }
             catch (int num)
             {

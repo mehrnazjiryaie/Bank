@@ -6,15 +6,17 @@
 
 using namespace std;
 
-// MyException::MyException(const char *err) {}
-int convert(char *str, int number)
+// MyException::MyException(const char * err) {}
+int convert(string str)
 {
-    number = atoi(str);
+    int number;
+    number = stoi(str);
     return number;
 }
 
-int convert(char ch, int number)
+int convert(char ch)
 {
+    int number;
     number = ch - 48;
     return number;
 }
@@ -51,10 +53,10 @@ customer::customer(string UN, string IP) // constructor with two parameter
     }
     size_t i = 0;
 
-    char *IP1;
-    char *IP2;
-    char *IP3;
-    char *IP4;
+    string IP1;
+    string IP2;
+    string IP3;
+    string IP4;
 
     while (IP[i])
     {
@@ -87,6 +89,16 @@ customer::customer(string UN, string IP) // constructor with two parameter
     }
 
     cout << IP << "\t" << IP1 << "\t" << IP2 << "\t" << IP3 << "\t" << IP4 << endl;
+    int part1 = convert(IP1);
+    int part2 = convert(IP2);
+    int part3 = convert(IP3);
+    int part4 = convert(IP4);
+
+    float b;
+    if (!(part1 >= 0 && part1 <= 255) || !(part2 >= 0 && part2 <= 255) || !(part3 >= 0 && part3 <= 255) || !(part4 >= 0 && part4 <= 255))
+    {
+        throw (b);
+    }
 
     default_random_engine eng(static_cast<unsigned int>(time(0)));
     uniform_int_distribution<unsigned int> myrand(1000, 9999);

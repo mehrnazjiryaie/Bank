@@ -53,7 +53,7 @@ int main(int argc, char const *argv[])
                 customer account(username, ip); // create an object of class customer
                 moshtari.push_back(account);
                 cout << "Your account has created successfully!!\n";
-                //usernames.push_back(username);
+                // usernames.push_back(username);
             }
             catch (int num)
             {
@@ -65,12 +65,11 @@ int main(int argc, char const *argv[])
                 cout << "Invalid username!! - username must include upper case or lower case or unsigned integer numbers.\n";
             }
 
-            catch (string e)
+            catch (float f)
             {
-                cout << e << endl;
+                cout << "Invalid ip - each part of ip must be between 0 and 255.\n";
             }
         }
-
-        return 0;
     }
+    return 0;
 }

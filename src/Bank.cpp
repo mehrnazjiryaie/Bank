@@ -7,11 +7,22 @@
 using namespace std;
 
 // MyException::MyException(const char *err) {}
+int convert(char *str, int number)
+{
+    number = atoi(str);
+    return number;
+}
+
+int convert(char ch, int number)
+{
+    number = ch - 48;
+    return number;
+}
 
 customer::customer(string UN, string IP) // constructor with two parameter
     : username(UN), ip(IP)
 {
-    
+
     // if (!(is_Empty))
     // {
     //     for (size_t i = 0; i < usernames.size(); i++)
@@ -40,17 +51,42 @@ customer::customer(string UN, string IP) // constructor with two parameter
     }
     size_t i = 0;
 
-    char* IP1, IP2, IP3, IP4;
+    char *IP1;
+    char *IP2;
+    char *IP3;
+    char *IP4;
 
     while (IP[i])
     {
-        if (IP[i] == '.')
+        while (IP[i] != '.')
         {
+            IP1 += IP[i];
             i++;
         }
-        IP1 = IP[i];
-        
+        i++;
+
+        while (IP[i] != '.')
+        {
+            IP2 += IP[i];
+            i++;
+        }
+        i++;
+
+        while (IP[i] != '.')
+        {
+            IP3 += IP[i];
+            i++;
+        }
+        i++;
+
+        while (IP[i])
+        {
+            IP4 += IP[i];
+            i++;
+        }
     }
+
+    cout << IP << "\t" << IP1 << "\t" << IP2 << "\t" << IP3 << "\t" << IP4 << endl;
 
     default_random_engine eng(static_cast<unsigned int>(time(0)));
     uniform_int_distribution<unsigned int> myrand(1000, 9999);

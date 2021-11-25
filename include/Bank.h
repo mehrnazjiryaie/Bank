@@ -21,6 +21,9 @@ public:
     std::string get_username();
 };
 
+int convert(char *);
+int convert(char);
+
 // class MyException : public std::exception
 // {
 // public:

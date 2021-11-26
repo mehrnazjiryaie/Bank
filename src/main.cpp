@@ -40,7 +40,7 @@ int main(int argc, char const *argv[])
 
         i++;
 
-        while (str[i] != ':')
+        while (str[i] != ':' && str[i])
         {
             ip += str[i]; // create ip
             i++;
@@ -49,7 +49,7 @@ int main(int argc, char const *argv[])
         i++;
 
         string s;
-        while (str[i] != ':')
+        while (str[i] != ':' && str[i])
         {
             s += str[i];
             i++;
@@ -99,13 +99,14 @@ int main(int argc, char const *argv[])
         if (command == "add_ip")
         {
             add_ip(username, moshtari, ip);
-            
+
             if (s == "another")
             {
                 string new_ip;
                 while (str[i])
                 {
                     new_ip += str[i];
+                    i++;
                 }
                 add_ip(username, moshtari, new_ip);
             }

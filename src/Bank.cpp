@@ -51,73 +51,84 @@ customer::customer(string UN, string IP) // constructor with two parameter
             throw(c); // an error
         }
     }
-    size_t i = 0;
 
-    string IP1;
-    string IP2;
-    string IP3;
-    string IP4;
+    ip_validation(IP);
 
-    int dot = 0; // counts the number of dots in ip
-    while (IP[i])
-    {
-        while (IP[i] != '.')
-        {
-            IP1 += IP[i];
-            i++;
-        }
-        dot++;
-        i++;
+    // size_t i = 0;
 
-        while (IP[i] != '.')
-        {
-            IP2 += IP[i];
-            i++;
-        }
-        dot++;
-        i++;
+    // string IP1;
+    // string IP2;
+    // string IP3;
+    // string IP4;
 
-        while (IP[i] != '.')
-        {
-            IP3 += IP[i];
-            i++;
-        }
-        dot++;
-        i++;
+    // int dot = 0; // counts the number of dots in ip
 
-        while (IP[i])
-        {
-            if (IP[i] == '.')
-            {
-                dot++;
-            }
-            IP4 += IP[i];
-            i++;
-        }
-    }
+    // while (IP[i] != '.' && IP[i])
+    // {
+    //     IP1 += IP[i];
+    //     i++;
+    // }
+    // if (IP[i] == '.')
+    // {
+    //     dot++;
+    // }
+    // i++;
 
-    double d;
-    if (!(dot == 3))
-    {
-        throw(d);
-    }
+    // while (IP[i] != '.' && IP[i])
+    // {
+    //     IP2 += IP[i];
+    //     i++;
+    // }
+    // if (IP[i] == '.')
+    // {
+    //     dot++;
+    // }
+    // i++;
 
-    cout << IP << "\t" << IP1 << "\t" << IP2 << "\t" << IP3 << "\t" << IP4 << endl;
-    int part1 = convert(IP1);
-    int part2 = convert(IP2);
-    int part3 = convert(IP3);
-    int part4 = convert(IP4);
+    // while (IP[i] != '.' && IP[i])
+    // {
+    //     IP3 += IP[i];
+    //     i++;
+    // }
+    // if (IP[i] == '.')
+    // {
+    //     dot++;
+    // }
+    // i++;
 
-    float b;
-    if (!(part1 >= 0 && part1 <= 255) || !(part2 >= 0 && part2 <= 255) || !(part3 >= 0 && part3 <= 255) || !(part4 >= 0 && part4 <= 255))
-    {
-        throw(b);
-    }
+    // while (IP[i] && IP[i])
+    // {
+    //     if (IP[i] == '.')
+    //     {
+    //         dot++;
+    //     }
+    //     IP4 += IP[i];
+    //     i++;
+    // }
+
+    // double d;
+    // if (!(dot == 3))
+    // {
+    //     throw(d);
+    // }
+
+    // int part1 = convert(IP1);
+    // int part2 = convert(IP2);
+    // int part3 = convert(IP3);
+    // int part4 = convert(IP4);
+
+    // float b;
+    // if (!(part1 >= 0 && part1 <= 255) || !(part2 >= 0 && part2 <= 255) || !(part3 >= 0 && part3 <= 255) || !(part4 >= 0 && part4 <= 255))
+    // {
+    //     throw(b);
+    // }
+
+    ips.push_back(IP);
 
     default_random_engine eng(static_cast<unsigned int>(time(0)));
     uniform_int_distribution<unsigned int> myrand(1000, 9999);
     card_number = myrand(eng);
-    cout << card_number << endl;
+    cout << "Your card number is : " << card_number << endl;
 
     balance = 0;
 }
@@ -129,4 +140,85 @@ customer::~customer()
 string customer::get_username()
 {
     return username;
+}
+
+void customer::set_ip(string IP)
+{
+    ips.push_back(IP);
+    for (size_t i = 0; i < ips.size(); i++)
+    {
+        cout << ips[i] << "\t";
+    }
+}
+
+void customer::ip_validation(string IP)
+{
+    size_t i = 0;
+
+    string IP1;
+    string IP2;
+    string IP3;
+    string IP4;
+
+    int dot = 0; // counts the number of dots in ip
+
+    while (IP[i] != '.' && IP[i])
+    {
+        IP1 += IP[i];
+        i++;
+    }
+    if (IP[i] == '.')
+    {
+        dot++;
+    }
+    i++;
+
+    while (IP[i] != '.' && IP[i])
+    {
+        IP2 += IP[i];
+        i++;
+    }
+    if (IP[i] == '.')
+    {
+        dot++;
+    }
+    i++;
+
+    while (IP[i] != '.' && IP[i])
+    {
+        IP3 += IP[i];
+        i++;
+    }
+    if (IP[i] == '.')
+    {
+        dot++;
+    }
+    i++;
+
+    while (IP[i] && IP[i])
+    {
+        if (IP[i] == '.')
+        {
+            dot++;
+        }
+        IP4 += IP[i];
+        i++;
+    }
+
+    double d;
+    if (!(dot == 3))
+    {
+        throw(d);
+    }
+
+    int part1 = convert(IP1);
+    int part2 = convert(IP2);
+    int part3 = convert(IP3);
+    int part4 = convert(IP4);
+
+    float b;
+    if (!(part1 >= 0 && part1 <= 255) || !(part2 >= 0 && part2 <= 255) || !(part3 >= 0 && part3 <= 255) || !(part4 >= 0 && part4 <= 255))
+    {
+        throw(b);
+    }
 }

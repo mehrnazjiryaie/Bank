@@ -13,12 +13,14 @@ private:
     long int expiration_date;     // not sure about its type
     unsigned long int balance;    // account balance
     struct transaction;           // account transaction
-    std::string ip;               // first account ip
+    std::string ip;               // first ip of account 
     std::vector<std::string> ips; // account ips
 public:
     customer(std::string, std::string);
     ~customer();
     std::string get_username();
+    void set_ip(std::string);
+    void ip_validation(std::string);
 };
 
 int convert(std::string);

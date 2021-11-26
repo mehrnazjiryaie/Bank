@@ -75,6 +75,32 @@ int main(int argc, char const *argv[])
                 cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
             }
         }
+
+        if (command == "add_ip")
+        {
+            for (size_t i = 0; i < moshtari.size(); i++)
+            {
+                if (username == moshtari[i].get_username())
+                {
+                    try
+                    {
+                        moshtari[i].ip_validation(ip);
+                        moshtari[i].set_ip(ip);
+                        cout << "\nYour new ip added successfully!!\n";
+                    }
+
+                    catch (float f)
+                    {
+                        cout << "Invalid ip - each part of ip must be between 0 and 255.\n";
+                    }
+
+                    catch (double d)
+                    {
+                        cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
+                    }
+                }
+            }
+        }
     }
     return 0;
 }

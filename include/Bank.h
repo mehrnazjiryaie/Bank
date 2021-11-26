@@ -25,6 +25,7 @@ public:
 
 int convert(std::string);
 int convert(char);
+void add_ip(std::string, std::vector<customer> &, std::string);
 
 // class MyException : public std::exception
 // {

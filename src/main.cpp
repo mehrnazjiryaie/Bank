@@ -40,11 +40,31 @@ int main(int argc, char const *argv[])
 
         i++;
 
-        while (str[i])
+        while (str[i] != ':')
         {
             ip += str[i]; // create ip
             i++;
         }
+
+        i++;
+
+        string s;
+        while (str[i] != ':')
+        {
+            s += str[i];
+            i++;
+        }
+        i++;
+
+        // if (s == "another")
+        // {
+        //     string new_ip;
+        //     while (str [i])
+        //     {
+        //         new_ip += str[i];
+        //     }
+        //     add_ip(username, moshtari, new_ip);
+        // }
 
         if (command == "create")
         {
@@ -78,28 +98,43 @@ int main(int argc, char const *argv[])
 
         if (command == "add_ip")
         {
-            for (size_t i = 0; i < moshtari.size(); i++)
+            add_ip(username, moshtari, ip);
+            
+            if (s == "another")
             {
-                if (username == moshtari[i].get_username())
+                string new_ip;
+                while (str[i])
                 {
-                    try
-                    {
-                        moshtari[i].ip_validation(ip);
-                        moshtari[i].set_ip(ip);
-                        cout << "\nYour new ip added successfully!!\n";
-                    }
-
-                    catch (float f)
-                    {
-                        cout << "Invalid ip - each part of ip must be between 0 and 255.\n";
-                    }
-
-                    catch (double d)
-                    {
-                        cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
-                    }
+                    new_ip += str[i];
                 }
+                add_ip(username, moshtari, new_ip);
             }
+            // for (size_t i = 0; i < moshtari.size(); i++)
+            // {
+            //     if (username == moshtari[i].get_username())
+            //     {
+            //         try
+            //         {
+            //             moshtari[i].ip_validation(ip);
+            //             moshtari[i].set_ip(ip);
+            //             cout << "\nYour new ip added successfully!!\n";
+            //         }
+
+            //         catch (float f)
+            //         {
+            //             cout << "Invalid ip - each part of ip must be between 0 and 255.\n";
+            //         }
+
+            //         catch (double d)
+            //         {
+            //             cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
+            //         }
+            //     }
+            // }
+        }
+
+        if (command == "deposit")
+        {
         }
     }
     return 0;

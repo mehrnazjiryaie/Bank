@@ -69,6 +69,11 @@ int main(int argc, char const *argv[])
             {
                 cout << "Invalid ip - each part of ip must be between 0 and 255.\n";
             }
+
+            catch (double d)
+            {
+                cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
+            }
         }
     }
     return 0;

@@ -42,7 +42,7 @@ customer::customer(string UN, string IP) // constructor with two parameter
         throw 505; // an error
     }
     char c;
-    for (size_t i = 1; i < UN.size(); i++) // i = 0 was checked recently so i starts from 1
+    for (size_t i = 1; i < UN.size(); i++) // i = 0 was checked recently so it starts from 1
     {
 
         if (!((UN[i] >= 48 && UN[i] <= 57) ||
@@ -58,6 +58,7 @@ customer::customer(string UN, string IP) // constructor with two parameter
     string IP3;
     string IP4;
 
+    int dot = 0; // counts the number of dots in ip
     while (IP[i])
     {
         while (IP[i] != '.')
@@ -65,6 +66,7 @@ customer::customer(string UN, string IP) // constructor with two parameter
             IP1 += IP[i];
             i++;
         }
+        dot++;
         i++;
 
         while (IP[i] != '.')
@@ -72,6 +74,7 @@ customer::customer(string UN, string IP) // constructor with two parameter
             IP2 += IP[i];
             i++;
         }
+        dot++;
         i++;
 
         while (IP[i] != '.')
@@ -79,13 +82,24 @@ customer::customer(string UN, string IP) // constructor with two parameter
             IP3 += IP[i];
             i++;
         }
+        dot++;
         i++;
 
         while (IP[i])
         {
+            if (IP[i] == '.')
+            {
+                dot++;
+            }
             IP4 += IP[i];
             i++;
         }
+    }
+
+    double d;
+    if (!(dot == 3))
+    {
+        throw(d);
     }
 
     cout << IP << "\t" << IP1 << "\t" << IP2 << "\t" << IP3 << "\t" << IP4 << endl;
@@ -97,7 +111,7 @@ customer::customer(string UN, string IP) // constructor with two parameter
     float b;
     if (!(part1 >= 0 && part1 <= 255) || !(part2 >= 0 && part2 <= 255) || !(part3 >= 0 && part3 <= 255) || !(part4 >= 0 && part4 <= 255))
     {
-        throw (b);
+        throw(b);
     }
 
     default_random_engine eng(static_cast<unsigned int>(time(0)));

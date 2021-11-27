@@ -120,11 +120,12 @@ int main(int argc, char const *argv[])
                     {
                         moshtari[i].check_expiration_date();
                         char ch;
-                        cout << "Do you wanna renewal your account?\n";
+                        cout << "Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.)\n";
                         cin >> ch;
                         if (ch == 'y' || ch == 'Y')
                         {
-                            moshtari[i].get_balance() = moshtari[i].get_balance() - 5000;
+                            
+                            moshtari[i].set_balance(moshtari[i].get_balance() - 5000);
                         }
                         else if(ch == 'n' || ch == 'N')
                         {

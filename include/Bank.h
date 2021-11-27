@@ -25,6 +25,8 @@ public:
     void check_expiration_date();
     void set_expiration_date(int);
     unsigned long int get_balance();
+    void set_balance(unsigned long int);
+    
 };
 
 int convert(std::string);

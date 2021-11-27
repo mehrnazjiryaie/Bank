@@ -106,6 +106,11 @@ unsigned long int customer::get_balance()
     return balance;
 }
 
+void customer::set_balance(unsigned long int blnc)
+{
+    balance = blnc;
+}
+
 void customer::ip_validation(string IP)
 {
     size_t i = 0;

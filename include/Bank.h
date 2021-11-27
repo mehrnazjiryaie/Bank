@@ -34,6 +34,7 @@ public:
 int convert(std::string);
 int convert(char);
 void add_ip(std::string, std::vector<customer> &, std::string);
+void renewal(std::vector<customer> &, size_t &);
 
 
 // class MyException : public std::exception

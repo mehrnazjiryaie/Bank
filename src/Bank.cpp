@@ -62,7 +62,6 @@ customer::customer(string UN, string IP) // constructor with two parameter
     cout << "Your card number is : " << card_number << endl;
 
     balance = 0;
-
 }
 
 customer::~customer()
@@ -101,6 +100,14 @@ int customer::get_expiration_date()
 void customer::check_expiration_date_for_renewal()
 {
     if ((expiration_date - oppening_date) <= 2 && (expiration_date - oppening_date) >= 0)
+    {
+        throw runtime_error("Your account has not expired!!\n");
+    }
+}
+
+void customer::check_expiration_date_for_transaction()
+{
+    if (!((expiration_date - oppening_date) > 2))
     {
         throw runtime_error("Your account has not expired!!\n");
     }
@@ -210,5 +217,22 @@ void add_ip(string username, vector<customer> &moshtari, string ip)
                 cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
             }
         }
+    }
+}
+
+void renewal(vector<customer> & moshtari, size_t & i)
+{
+    char ch;
+    cout << "Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.)\n";
+    cin >> ch;
+    if (ch == 'y' || ch == 'Y')
+    {
+        // here do a validation for when balance is zero and have to get loan
+        moshtari[i].set_balance(moshtari[i].get_balance() - 5000);              // here decrease the renewal cost from account balance
+        moshtari[i].set_expiration_date(moshtari[i].get_expiration_date() + 2); // this updates the expiration account
+    }
+    else if (ch == 'n' || ch == 'N')
+    {
+        return;
     }
 }

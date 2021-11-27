@@ -119,19 +119,20 @@ int main(int argc, char const *argv[])
                     try
                     {
                         moshtari[i].check_expiration_date_for_renewal();
-                        char ch;
-                        cout << "Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.)\n";
-                        cin >> ch;
-                        if (ch == 'y' || ch == 'Y')
-                        {
-                            // here do a validation for when balance is zero and have to get loan
-                            moshtari[i].set_balance(moshtari[i].get_balance() - 5000);              // here decrease the renewal cost from account balance
-                            moshtari[i].set_expiration_date(moshtari[i].get_expiration_date() + 2); // this updates the expiration account
-                        }
-                        else if (ch == 'n' || ch == 'N')
-                        {
-                            break;
-                        }
+                        renewal(moshtari, i);
+                        // char ch;
+                        // cout << "Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.)\n";
+                        // cin >> ch;
+                        // if (ch == 'y' || ch == 'Y')
+                        // {
+                        //     // here do a validation for when balance is zero and have to get loan
+                        //     moshtari[i].set_balance(moshtari[i].get_balance() - 5000);              // here decrease the renewal cost from account balance
+                        //     moshtari[i].set_expiration_date(moshtari[i].get_expiration_date() + 2); // this updates the expiration account
+                        // }
+                        // else if (ch == 'n' || ch == 'N')
+                        // {
+                        //     break;
+                        // }
                     }
                     catch (const std::exception &e)
                     {
@@ -143,8 +144,21 @@ int main(int argc, char const *argv[])
 
         if (command == "deposit")
         {
-            
-
+            for (size_t i = 0; i < moshtari.size(); i++)
+            {
+                if (username == moshtari[i].get_username())
+                {
+                    try
+                    {
+                        moshtari[i].check_expiration_date_for_transaction();
+                        renewal(moshtari, i);
+                    }
+                    catch (const std::exception &e)
+                    {
+                        e.what();
+                    }
+                }
+            }
         }
     }
     return 0;

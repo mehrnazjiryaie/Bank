@@ -62,6 +62,7 @@ customer::customer(string UN, string IP) // constructor with two parameter
     cout << "Your card number is : " << card_number << endl;
 
     balance = 0;
+
 }
 
 customer::~customer()
@@ -80,6 +81,29 @@ void customer::set_ip(string IP)
     // {
     //     cout << ips[i] << "\t";
     // }
+}
+
+void customer::set_opening_date(int open_date)
+{
+    oppening_date = open_date;
+}
+
+void customer::set_expiration_date(int exp)
+{
+    expiration_date = exp;
+}
+
+void customer::check_expiration_date()
+{
+    if ((expiration_date - oppening_date) <= 2 && (expiration_date - oppening_date) >= 0)
+    {
+        throw runtime_error("Your account has not expired!!\n");
+    }
+}
+
+unsigned long int customer::get_balance()
+{
+    return balance;
 }
 
 void customer::ip_validation(string IP)
@@ -164,7 +188,6 @@ void add_ip(string username, vector<customer> &moshtari, string ip)
             {
                 moshtari[i].ip_validation(ip);
                 moshtari[i].set_ip(ip);
-                cout << "\nYour new ip added successfully!!\n";
             }
 
             catch (float f)

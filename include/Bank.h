@@ -21,11 +21,16 @@ public:
     std::string get_username();
     void set_ip(std::string);
     void ip_validation(std::string);
+    void set_opening_date(int);
+    void check_expiration_date();
+    void set_expiration_date(int);
+    unsigned long int get_balance();
 };
 
 int convert(std::string);
 int convert(char);
 void add_ip(std::string, std::vector<customer> &, std::string);
+
 
 // class MyException : public std::exception
 // {

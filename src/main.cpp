@@ -10,7 +10,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    cout << "WELCOME TO GHOZAH BANK\n"; //بانك قُــزَه 
+    cout << "WELCOME TO GHOZAH BANK\n"; //بانك قُــزَه
     vector<customer> moshtari;          // costumer is a class(user defined type)
 
     while (1)
@@ -118,20 +118,20 @@ int main(int argc, char const *argv[])
                 {
                     try
                     {
-                        moshtari[i].check_expiration_date();
+                        moshtari[i].check_expiration_date_for_renewal();
                         char ch;
                         cout << "Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.)\n";
                         cin >> ch;
                         if (ch == 'y' || ch == 'Y')
                         {
-                            
-                            moshtari[i].set_balance(moshtari[i].get_balance() - 5000);
+                            // here do a validation for when balance is zero and have to get loan
+                            moshtari[i].set_balance(moshtari[i].get_balance() - 5000);              // here decrease the renewal cost from account balance
+                            moshtari[i].set_expiration_date(moshtari[i].get_expiration_date() + 2); // this updates the expiration account
                         }
-                        else if(ch == 'n' || ch == 'N')
+                        else if (ch == 'n' || ch == 'N')
                         {
                             break;
                         }
-                        
                     }
                     catch (const std::exception &e)
                     {
@@ -143,6 +143,8 @@ int main(int argc, char const *argv[])
 
         if (command == "deposit")
         {
+            
+
         }
     }
     return 0;

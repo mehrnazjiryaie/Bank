@@ -22,11 +22,13 @@ public:
     void set_ip(std::string);
     void ip_validation(std::string);
     void set_opening_date(int);
-    void check_expiration_date();
+    void check_expiration_date_for_renewal();
     void set_expiration_date(int);
     unsigned long int get_balance();
     void set_balance(unsigned long int);
-    
+    int get_expiration_date();
+    void check_expiration_date_for_transaction();
+
 };
 
 int convert(std::string);

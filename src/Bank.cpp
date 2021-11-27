@@ -93,7 +93,12 @@ void customer::set_expiration_date(int exp)
     expiration_date = exp;
 }
 
-void customer::check_expiration_date()
+int customer::get_expiration_date()
+{
+    return expiration_date;
+}
+
+void customer::check_expiration_date_for_renewal()
 {
     if ((expiration_date - oppening_date) <= 2 && (expiration_date - oppening_date) >= 0)
     {

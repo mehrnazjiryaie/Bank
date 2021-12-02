@@ -7,14 +7,14 @@
 using namespace std;
 
 // MyException::MyException(const char * err) {}
-int convert(string str)
+int convert(string &str)
 {
     int number;
     number = stoi(str);
     return number;
 }
 
-int convert(char ch)
+int convert(char &ch)
 {
     int number;
     number = ch - 48;
@@ -61,7 +61,7 @@ customer::customer(string UN, string IP) // constructor with two parameter
     card_number = myrand(eng);
     cout << "Your card number is : " << card_number << endl;
 
-    balance = 0;
+    balance = 25000;
 }
 
 customer::~customer()
@@ -108,7 +108,7 @@ void customer::check_expiration_date_for_renewal()
     // cout << get_expiration_date() - get_opening_date() << endl;
     if ((get_expiration_date() - get_opening_date()) <= 2 && (get_expiration_date() - get_opening_date()) >= 0)
     {
-        throw runtime_error("Your account has not expired!!\n");
+        throw runtime_error("Your account has not expired yet!!\n");
     }
 }
 
@@ -227,13 +227,13 @@ void add_ip(string username, vector<customer> &moshtari, string ip)
     }
 }
 
-bool customer::get_ips(string ip)
+bool customer::get_ips(string ip) // this function checks if an ip belong to an account or not
 {
     for (size_t i = 0; i < ips.size(); i++)
     {
         if (ip == ips[i])
         {
-            cout <<"true\n";
+            cout << "true\n";
             return true;
         }
     }
@@ -242,13 +242,15 @@ bool customer::get_ips(string ip)
 void renewal(vector<customer> &moshtari, size_t &i)
 {
     char ch;
-    cout << "Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.) (type y or n)\n";
+    cout << "Your expiration time of your account has been finished!! Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.) (type y as 'yse' or n as 'no')\n";
     cin >> ch;
     if (ch == 'y' || ch == 'Y')
     {
-        // here do a validation for when balance is zero and have to get loan
+        // here does a validation for when balance is zero and have to get loan
         moshtari[i].set_balance(moshtari[i].get_balance() - 5000);              // here decrease the renewal cost from account balance
-        moshtari[i].set_expiration_date(moshtari[i].get_expiration_date() + 2); // this updates the expiration account
+        moshtari[i].set_expiration_date(moshtari[i].get_expiration_date() + 2); // change // this updates the expiration account
+        cout << moshtari[i].get_expiration_date() << endl;
+        cout << "congrats" << endl;
     }
     else if (ch == 'n' || ch == 'N')
     {

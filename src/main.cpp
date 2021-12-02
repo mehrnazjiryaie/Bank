@@ -102,7 +102,6 @@ int main(int argc, char const *argv[])
 
         if (command == "add_ip")
         {
-            cout << "fuck\n";
             add_ip(username, moshtari, ip);
 
             if (s == "another")
@@ -130,24 +129,15 @@ int main(int argc, char const *argv[])
                     {
                         moshtari[i].check_expiration_date_for_renewal();
                         renewal(moshtari, i);
-                        // char ch;
-                        // cout << "Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.)\n";
-                        // cin >> ch;
-                        // if (ch == 'y' || ch == 'Y')
-                        // {
-                        //     // here do a validation for when balance is zero and have to get loan
-                        //     moshtari[i].set_balance(moshtari[i].get_balance() - 5000);              // here decrease the renewal cost from account balance
-                        //     moshtari[i].set_expiration_date(moshtari[i].get_expiration_date() + 2); // this updates the expiration account
-                        // }
-                        // else if (ch == 'n' || ch == 'N')
-                        // {
-                        //     break;
-                        // }
                     }
                     catch (const std::exception &e)
                     {
                         std::cerr << e.what() << '\n';
                     }
+                }
+                else
+                {
+                    cout << "There is no such account with this username or ip!\n";
                 }
             }
         }
@@ -167,9 +157,32 @@ int main(int argc, char const *argv[])
                     {
                         e.what();
                     }
+
+                    int added_balance = 0;
+                    added_balance = convert(s);
+
+                    moshtari[i].set_balance(moshtari[i].get_balance() + added_balance);
+                }
+                else
+                {
+                    cout << "There is no such account with this username or ip!\n";
                 }
             }
         }
+
+        if (command == "transfer")
+        {
+            for (size_t i = 0; i < moshtari.size(); i++)
+            {
+                if (username == moshtari[i].get_username() && moshtari[i].get_ips(ip))
+                {
+                    
+                }
+                
+            }
+            
+        }
+        
     }
     return 0;
 }

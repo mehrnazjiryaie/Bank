@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include "Bank.h"
 
 using namespace std;
@@ -12,6 +13,7 @@ int main(int argc, char const *argv[])
 {
     cout << "WELCOME TO GHOZAH BANK\n"; //بانك قُــزَه
     vector<customer> moshtari;          // costumer is a class(user defined type)
+    // std::vector<customer>::iterator it;
 
     while (1)
     {
@@ -21,7 +23,10 @@ int main(int argc, char const *argv[])
         string ip = "";       // account ip
 
         cout << "Enter your request:\n";
+
         getline(cin, str);
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
         size_t i = 0;
 
         while (str[i] != ' ' && str[i])
@@ -61,8 +66,6 @@ int main(int argc, char const *argv[])
             try
             {
                 customer account(username, ip); // create an object of class customer
-                moshtari.push_back(account);
-                cout << "Your account has created successfully!!\n";
                 int op;
                 int exp;
                 cout << "enter opening date and expiration date :\n";
@@ -70,6 +73,8 @@ int main(int argc, char const *argv[])
                 cin >> exp;
                 account.set_opening_date(op);
                 account.set_expiration_date(exp);
+                moshtari.push_back(account);
+                cout << "Your account has created successfully!!\n";
 
                 // usernames.push_back(username);
             }
@@ -96,6 +101,7 @@ int main(int argc, char const *argv[])
 
         if (command == "add_ip")
         {
+            cout << "fuck\n";
             add_ip(username, moshtari, ip);
 
             if (s == "another")
@@ -112,10 +118,13 @@ int main(int argc, char const *argv[])
 
         if (command == "renewal")
         {
+            cout << "hello\n";
             for (size_t i = 0; i < moshtari.size(); i++)
             {
-                if (username == moshtari[i].get_username())
+                cout << "hello\n";
+                if (username == moshtari[i].get_username() /*&& ip == moshtari[i].get_ips()*/)
                 {
+                    cout << "hello\n";
                     try
                     {
                         moshtari[i].check_expiration_date_for_renewal();
@@ -146,7 +155,7 @@ int main(int argc, char const *argv[])
         {
             for (size_t i = 0; i < moshtari.size(); i++)
             {
-                if (username == moshtari[i].get_username())
+                if (username == moshtari[i].get_username() && ip == moshtari[i].get_ips())
                 {
                     try
                     {

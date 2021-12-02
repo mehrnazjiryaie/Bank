@@ -9,7 +9,7 @@ class customer
 private:
     std::string username;         // account username
     int card_number;              // a four digit number
-    long int oppening_date;       // not sure about its type
+    long int opening_date;       // not sure about its type
     long int expiration_date;     // not sure about its type
     unsigned long int balance;    // account balance
     struct transaction;           // account transaction
@@ -27,7 +27,9 @@ public:
     unsigned long int get_balance();
     void set_balance(unsigned long int);
     int get_expiration_date();
+    int get_opening_date();
     void check_expiration_date_for_transaction();
+    std::string get_ips();
 
 };
 

@@ -76,15 +76,15 @@ string customer::get_username()
 void customer::set_ip(string IP)
 {
     ips.push_back(IP);
-    // for (size_t i = 0; i < ips.size(); i++)
-    // {
-    //     cout << ips[i] << "\t";
-    // }
+    for (size_t i = 0; i < ips.size(); i++)
+    {
+        cout << ips[i] << "\t";
+    }
 }
 
 void customer::set_opening_date(int open_date)
 {
-    oppening_date = open_date;
+    opening_date = open_date;
 }
 
 void customer::set_expiration_date(int exp)
@@ -97,9 +97,16 @@ int customer::get_expiration_date()
     return expiration_date;
 }
 
+int customer::get_opening_date()
+{
+    return opening_date;
+}
+
 void customer::check_expiration_date_for_renewal()
 {
-    if ((expiration_date - oppening_date) <= 2 && (expiration_date - oppening_date) >= 0)
+    // cout << expiration_date - opening_date << endl;
+    // cout << get_expiration_date() - get_opening_date() << endl;
+    if ((get_expiration_date() - get_opening_date()) <= 2 && (get_expiration_date() - get_opening_date()) >= 0)
     {
         throw runtime_error("Your account has not expired!!\n");
     }
@@ -107,7 +114,7 @@ void customer::check_expiration_date_for_renewal()
 
 void customer::check_expiration_date_for_transaction()
 {
-    if (!((expiration_date - oppening_date) > 2))
+    if (!((get_expiration_date() - get_opening_date()) > 2))
     {
         throw runtime_error("Your account has not expired!!\n");
     }
@@ -220,10 +227,18 @@ void add_ip(string username, vector<customer> &moshtari, string ip)
     }
 }
 
-void renewal(vector<customer> & moshtari, size_t & i)
+string customer::get_ips()
+{
+    for (size_t i = 0; i < ips.size(); i++)
+    {
+        return ips[i];
+    }
+}
+
+void renewal(vector<customer> &moshtari, size_t &i)
 {
     char ch;
-    cout << "Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.)\n";
+    cout << "Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.) (type y or n)\n";
     cin >> ch;
     if (ch == 'y' || ch == 'Y')
     {

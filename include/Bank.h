@@ -29,7 +29,7 @@ public:
     int get_expiration_date();
     int get_opening_date();
     void check_expiration_date_for_transaction();
-    std::string get_ips();
+    bool get_ips(std::string);
 
 };
 

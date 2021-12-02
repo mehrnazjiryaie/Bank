@@ -227,11 +227,15 @@ void add_ip(string username, vector<customer> &moshtari, string ip)
     }
 }
 
-string customer::get_ips()
+bool customer::get_ips(string ip)
 {
     for (size_t i = 0; i < ips.size(); i++)
     {
-        return ips[i];
+        if (ip == ips[i])
+        {
+            cout <<"true\n";
+            return true;
+        }
     }
 }
 

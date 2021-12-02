@@ -10,14 +10,14 @@
 iostream
 -
 
-/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/main.cpp
+/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.cpp
 iostream
 -
-vector
+ctype.h
 -
-string
+exception
 -
-algorithm
+random
 -
 Bank.h
 /mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.h

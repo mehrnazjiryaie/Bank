@@ -25,6 +25,7 @@ int main(int argc, char const *argv[])
         cout << "Enter your request:\n";
 
         getline(cin, str);
+        fflush(stdin);
         // cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         size_t i = 0;
@@ -122,7 +123,7 @@ int main(int argc, char const *argv[])
             for (size_t i = 0; i < moshtari.size(); i++)
             {
                 cout << "hello\n";
-                if (username == moshtari[i].get_username() /*&& ip == moshtari[i].get_ips()*/)
+                if (username == moshtari[i].get_username() && moshtari[i].get_ips(ip))
                 {
                     cout << "hello\n";
                     try
@@ -155,7 +156,7 @@ int main(int argc, char const *argv[])
         {
             for (size_t i = 0; i < moshtari.size(); i++)
             {
-                if (username == moshtari[i].get_username() && ip == moshtari[i].get_ips())
+                if (username == moshtari[i].get_username() && moshtari[i].get_ips(ip))
                 {
                     try
                     {

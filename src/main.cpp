@@ -178,6 +178,10 @@ int main(int argc, char const *argv[])
                 {
                     
                 }
+                else
+                {
+                    cout << "There is no such account with this username or ip!\n";
+                }
                 
             }
             

@@ -30,10 +30,8 @@ int main(int argc, char const *argv[])
         string ip = "";       // account ip
 
         cout << "Enter your request:\n";
-    
+
         getline(cin, str);
-       
-        
 
         size_t i = 0;
 
@@ -61,7 +59,7 @@ int main(int argc, char const *argv[])
 
         i++;
 
-        string s;
+        string s = "";
         while (str[i] != ':' && str[i])
         {
             s += str[i];

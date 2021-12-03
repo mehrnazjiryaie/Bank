@@ -18,26 +18,6 @@ iostream
 Bank.h
 ../include/Bank.h
 
-/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.cpp
-iostream
--
-ctype.h
--
-exception
--
-random
--
-Bank.h
-/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.h
-Transaction.h
-/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Transaction.h
-
-/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Transaction.cpp
-iostream
--
-Transaction.h
-/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Transaction.h
-
 /mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/main.cpp
 iostream
 -

@@ -6,7 +6,6 @@
 #include "Transaction.h"
 using namespace std;
 
-
 // MyException::MyException(const char * err) {}
 unsigned int convert(string &str)
 {
@@ -271,6 +270,5 @@ customer check_existance_account(vector<customer> &moshtari, string s)
         {
             return moshtari[i];
         }
-        
     }
 }

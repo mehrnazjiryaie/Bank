@@ -11,7 +11,7 @@ private:
     unsigned int payment;
     int date;
 public:
-    transaction(customer &, customer &, unsigned int);
+    transaction(std::string , customer , unsigned int);
    ~transaction();
 };
 #endif

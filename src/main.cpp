@@ -27,8 +27,8 @@ int main(int argc, char const *argv[])
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         getline(cin, str);
-        fflush(stdin);
-        // cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        // fflush(stdin);
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         size_t i = 0;
 
@@ -208,7 +208,7 @@ int main(int argc, char const *argv[])
                     try
                     {
                         customer destination_account = check_existance_account(moshtari, s);
-                        transaction transition(moshtari[i], destination_account, transfer_money);
+                        // transaction transition(moshtari[i], destination_account, transfer_money);
                     }
                     catch (const std::exception &e)
                     {

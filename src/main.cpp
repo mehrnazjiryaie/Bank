@@ -60,7 +60,18 @@ int main(int argc, char const *argv[])
             s += str[i];
             i++;
         }
+
         i++;
+
+        int transfer_money = 0;
+        string trans_money = "";
+        while (str[i])
+        {
+            trans_money += str[i];
+            i++;
+        }
+        transfer_money = convert(trans_money);
+        
 
         if (command == "create")
         {
@@ -174,19 +185,16 @@ int main(int argc, char const *argv[])
         {
             for (size_t i = 0; i < moshtari.size(); i++)
             {
-                if (username == moshtari[i].get_username() && moshtari[i].get_ips(ip))
+                if (username == moshtari[i].get_username() && moshtari[i].get_ips(ip)) // for beginning account
                 {
                     
                 }
                 else
                 {
-                    cout << "There is no such account with this username or ip!\n";
+                    cout << "The beginning account doesn`t exist with these username or ip!\n";
                 }
-                
             }
-            
         }
-        
     }
     return 0;
 }

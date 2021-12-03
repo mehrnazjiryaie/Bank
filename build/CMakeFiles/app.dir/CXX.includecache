@@ -9,18 +9,8 @@
 ../include/Bank.h
 iostream
 -
-
-/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.cpp
-iostream
+vector
 -
-ctype.h
--
-exception
--
-random
--
-Bank.h
-/mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/Bank.h
 
 /mnt/c/Users/moalem/Desktop/tamrin 2 AP/src/main.cpp
 iostream

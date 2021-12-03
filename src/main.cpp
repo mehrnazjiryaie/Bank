@@ -63,14 +63,15 @@ int main(int argc, char const *argv[])
 
         i++;
 
-        int transfer_money = 0;
-        string trans_money = "";
-        while (str[i])
-        {
-            trans_money += str[i];
-            i++;
-        }
-        transfer_money = convert(trans_money);
+        // int transfer_money = 0;
+        // string trans_money = "";
+        // while (str[i])
+        // {
+        //     trans_money += str[i];
+        //     i++;
+        // }
+        // transfer_money = convert(trans_money);
+        // cout << "ts : "<< transfer_money <<endl;
         
 
         if (command == "create")

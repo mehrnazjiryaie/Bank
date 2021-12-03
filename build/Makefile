@@ -150,6 +150,33 @@ src/Bank.cpp.s:
 	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Bank.cpp.s
 .PHONY : src/Bank.cpp.s
 
+src/Transaction.o: src/Transaction.cpp.o
+
+.PHONY : src/Transaction.o
+
+# target to build an object file
+src/Transaction.cpp.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Transaction.cpp.o
+.PHONY : src/Transaction.cpp.o
+
+src/Transaction.i: src/Transaction.cpp.i
+
+.PHONY : src/Transaction.i
+
+# target to preprocess a source file
+src/Transaction.cpp.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Transaction.cpp.i
+.PHONY : src/Transaction.cpp.i
+
+src/Transaction.s: src/Transaction.cpp.s
+
+.PHONY : src/Transaction.s
+
+# target to generate assembly for a file
+src/Transaction.cpp.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/Transaction.cpp.s
+.PHONY : src/Transaction.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... src/Bank.o"
 	@echo "... src/Bank.i"
 	@echo "... src/Bank.s"
+	@echo "... src/Transaction.o"
+	@echo "... src/Transaction.i"
+	@echo "... src/Transaction.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

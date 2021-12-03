@@ -3,7 +3,7 @@
 #include <string>
 #include <algorithm>
 #include "Bank.h"
-
+#include <limits>
 
 using namespace std;
 
@@ -25,6 +25,7 @@ int main(int argc, char const *argv[])
 
         cout << "Enter your request:\n";
 
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         getline(cin, str);
         fflush(stdin);
         // cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -65,7 +66,7 @@ int main(int argc, char const *argv[])
 
         i++;
 
-        int transfer_money = 0;
+        unsigned int transfer_money = 0;
         string payment = "";
 
         if (str[i])
@@ -196,8 +197,18 @@ int main(int argc, char const *argv[])
                 {
                     try
                     {
-                        check_existance_account(moshtari, s);
-                        //transaction transition(moshtari[i].get_username(), s, transfer_money);
+                        moshtari[i].check_expiration_date_for_transaction();
+                        renewal(moshtari, i);
+                    }
+                    catch (const std::exception &e)
+                    {
+                        e.what();
+                    }
+
+                    try
+                    {
+                        customer destination_account = check_existance_account(moshtari, s);
+                        transaction transition(moshtari[i], destination_account, transfer_money);
                     }
                     catch (const std::exception &e)
                     {

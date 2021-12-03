@@ -3,18 +3,19 @@
 #include <exception>
 #include <random>
 #include "Bank.h"
+#include "Transaction.h"
 using namespace std;
 
 
 // MyException::MyException(const char * err) {}
-int convert(string &str)
+unsigned int convert(string &str)
 {
     int number;
     number = stoi(str);
     return number;
 }
 
-int convert(char &ch)
+unsigned int convert(char &ch)
 {
     int number;
     number = ch - 48;
@@ -258,14 +259,18 @@ void renewal(vector<customer> &moshtari, size_t &i)
     }
 }
 
-bool check_existance_account(vector<customer> &moshtari, string s)
+customer check_existance_account(vector<customer> &moshtari, string s)
 {
     for (size_t i = 0; i < moshtari.size(); i++)
     {
-        if (!(moshtari[i].get_username() == s))
+        if (!(moshtari[i].get_username() != s))
         {
-            throw invalid_argument("This account is not exists!\n");
-            // return true;
+            throw invalid_argument("The destination account does not exist with these username or ip!\n");
         }
+        else
+        {
+            return moshtari[i];
+        }
+        
     }
 }

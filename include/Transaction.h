@@ -1,14 +1,17 @@
+#ifndef TRANSACTION_H
+#define TRANSACTION_H
 #include <iostream>
+#include "Bank.h"
 
 class transaction
 {
 private:
     std::string beginning;
     std::string destination;
-    unsigned long int payment;
+    unsigned int payment;
     int date;
 public:
-    transaction(std::string, std::string, unsigned long int);
-    ~transaction();
+    transaction(customer &, customer &, unsigned int);
+   ~transaction();
 };
-
+#endif

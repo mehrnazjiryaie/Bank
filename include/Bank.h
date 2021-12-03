@@ -34,11 +34,11 @@ public:
     bool get_ips(std::string);
 };
 
-int convert(std::string &);
-int convert(char &);
+unsigned int convert(std::string &);
+unsigned int convert(char &);
 void add_ip(std::string, std::vector<customer> &, std::string);
 void renewal(std::vector<customer> &, size_t &);
-bool check_existance_account(std::vector<customer> &, std::string);
+customer check_existance_account(std::vector<customer> &, std::string);
 
 // class MyException : public std::exception
 // {

@@ -6,12 +6,12 @@
 class transaction
 {
 private:
-    std::string beginning;
-    std::string destination;
+    customer beginning;
+    customer destination;
     unsigned int payment;
     int date;
 public:
-    transaction(std::string , customer , unsigned int);
+    transaction(customer , customer , unsigned int);
    ~transaction();
 };
 #endif

@@ -3,9 +3,14 @@
 #include <string>
 #include <algorithm>
 #include "Bank.h"
-#include <limits>
+#include "Transaction.h"
 
 using namespace std;
+
+void Clear()
+{
+    cout << "\x1B[2J\x1B[H";
+}
 
 // std::vector<std::string> usernames; // a vector for save all of accounts names
 // bool is_Empty = true;
@@ -18,17 +23,17 @@ int main(int argc, char const *argv[])
 
     while (1)
     {
+
         string str = "";
         string command = "";  // customer request
         string username = ""; // account username
         string ip = "";       // account ip
 
         cout << "Enter your request:\n";
-
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
         getline(cin, str);
-        // fflush(stdin);
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+       
+        
 
         size_t i = 0;
 
@@ -208,7 +213,7 @@ int main(int argc, char const *argv[])
                     try
                     {
                         customer destination_account = check_existance_account(moshtari, s);
-                        // transaction transition(moshtari[i], destination_account, transfer_money);
+                        transaction transition(moshtari[i], destination_account, transfer_money);
                     }
                     catch (const std::exception &e)
                     {

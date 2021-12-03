@@ -3,8 +3,8 @@
 #include <exception>
 #include <random>
 #include "Bank.h"
-
 using namespace std;
+
 
 // MyException::MyException(const char * err) {}
 int convert(string &str)
@@ -59,7 +59,7 @@ customer::customer(string UN, string IP) // constructor with two parameter
     default_random_engine eng(static_cast<unsigned int>(time(0)));
     uniform_int_distribution<unsigned int> myrand(1000, 9999);
     card_number = myrand(eng);
-    cout << "Your card number is : " << card_number << endl;
+    std::cout << "Your card number is : " << card_number << endl;
 
     balance = 25000;
 }
@@ -78,7 +78,7 @@ void customer::set_ip(string IP)
     ips.push_back(IP);
     for (size_t i = 0; i < ips.size(); i++)
     {
-        cout << ips[i] << "\t";
+        std::cout << ips[i] << "\t";
     }
 }
 
@@ -104,8 +104,8 @@ int customer::get_opening_date()
 
 void customer::check_expiration_date_for_renewal()
 {
-    // cout << expiration_date - opening_date << endl;
-    // cout << get_expiration_date() - get_opening_date() << endl;
+    // std::cout << expiration_date - opening_date << endl;
+    // std::cout << get_expiration_date() - get_opening_date() << endl;
     if ((get_expiration_date() - get_opening_date()) <= 2 && (get_expiration_date() - get_opening_date()) >= 0)
     {
         throw runtime_error("Your account has not expired yet!!\n");
@@ -216,12 +216,12 @@ void add_ip(string username, vector<customer> &moshtari, string ip)
 
             catch (float f)
             {
-                cout << "Invalid ip - each part of ip must be between 0 and 255.\n";
+                std::cout << "Invalid ip - each part of ip must be between 0 and 255.\n";
             }
 
             catch (double d)
             {
-                cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
+                std::cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
             }
         }
     }
@@ -233,7 +233,7 @@ bool customer::get_ips(string ip) // this function checks if an ip belong to an 
     {
         if (ip == ips[i])
         {
-            cout << "true\n";
+            std::cout << "true\n";
             return true;
         }
     }
@@ -242,18 +242,30 @@ bool customer::get_ips(string ip) // this function checks if an ip belong to an 
 void renewal(vector<customer> &moshtari, size_t &i)
 {
     char ch;
-    cout << "Your expiration time of your account has been finished!! Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.) (type y as 'yse' or n as 'no')\n";
+    std::cout << "Your expiration time of your account has been finished!! Do you wanna renewal your account? (For renewal you have to pay 5000 Toman.) (type y as 'yse' or n as 'no')\n";
     cin >> ch;
     if (ch == 'y' || ch == 'Y')
     {
         // here does a validation for when balance is zero and have to get loan
         moshtari[i].set_balance(moshtari[i].get_balance() - 5000);              // here decrease the renewal cost from account balance
         moshtari[i].set_expiration_date(moshtari[i].get_expiration_date() + 2); // change // this updates the expiration account
-        cout << moshtari[i].get_expiration_date() << endl;
-        cout << "congrats" << endl;
+        std::cout << moshtari[i].get_expiration_date() << endl;
+        std::cout << "congrats" << endl;
     }
     else if (ch == 'n' || ch == 'N')
     {
         return;
+    }
+}
+
+bool check_existance_account(vector<customer> &moshtari, string s)
+{
+    for (size_t i = 0; i < moshtari.size(); i++)
+    {
+        if (!(moshtari[i].get_username() == s))
+        {
+            throw invalid_argument("This account is not exists!\n");
+            // return true;
+        }
     }
 }

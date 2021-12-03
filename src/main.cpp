@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "Bank.h"
 
+
 using namespace std;
 
 // std::vector<std::string> usernames; // a vector for save all of accounts names
@@ -60,19 +61,24 @@ int main(int argc, char const *argv[])
             s += str[i];
             i++;
         }
+        cout << "s :" << s << endl;
 
         i++;
 
-        // int transfer_money = 0;
-        // string trans_money = "";
-        // while (str[i])
-        // {
-        //     trans_money += str[i];
-        //     i++;
-        // }
-        // transfer_money = convert(trans_money);
-        // cout << "ts : "<< transfer_money <<endl;
-        
+        int transfer_money = 0;
+        string payment = "";
+
+        if (str[i])
+        {
+            while (str[i])
+            {
+                payment += str[i];
+                i++;
+            }
+            cout << "payment : " << payment << endl;
+            transfer_money = convert(payment);
+            cout << "ts : " << transfer_money << endl;
+        }
 
         if (command == "create")
         {
@@ -188,7 +194,15 @@ int main(int argc, char const *argv[])
             {
                 if (username == moshtari[i].get_username() && moshtari[i].get_ips(ip)) // for beginning account
                 {
-                    
+                    try
+                    {
+                        check_existance_account(moshtari, s);
+                        //transaction transition(moshtari[i].get_username(), s, transfer_money);
+                    }
+                    catch (const std::exception &e)
+                    {
+                        std::cerr << e.what() << '\n';
+                    }
                 }
                 else
                 {

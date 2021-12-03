@@ -2,6 +2,7 @@
 #define BANK_H
 #include <iostream>
 #include <vector>
+#include "Transaction.h"
 
 // std::vector<std::string> usernames; // a vector for save all of accounts names
 // bool is_Empty = true;
@@ -13,12 +14,12 @@ private:
     long int opening_date;        // not sure about its type
     long int expiration_date;     // not sure about its type
     unsigned long int balance;    // account balance
-    class transaction;            // account transaction
     std::string ip;               // first ip of account
     std::vector<std::string> ips; // account ips
 public:
     customer(std::string, std::string);
     ~customer();
+    transaction transfer; // account transaction
     std::string get_username();
     void set_ip(std::string);
     void ip_validation(std::string);
@@ -37,11 +38,14 @@ int convert(std::string &);
 int convert(char &);
 void add_ip(std::string, std::vector<customer> &, std::string);
 void renewal(std::vector<customer> &, size_t &);
+bool check_existance_account(std::vector<customer> &, std::string);
 
 // class MyException : public std::exception
 // {
 // public:
 //     MyException(const char *);
 // };
-
 #endif
+
+
+

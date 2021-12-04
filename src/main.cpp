@@ -83,7 +83,7 @@ int main(int argc, char const *argv[])
 
         if (command == "create")
         {
-            
+
             try
             {
                 customer account(username, ip); // create an object of class customer
@@ -118,7 +118,6 @@ int main(int argc, char const *argv[])
             {
                 cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
             }
-            
         }
 
         if (command == "add_ip")
@@ -206,6 +205,29 @@ int main(int argc, char const *argv[])
                     {
                         std::cerr << e.what() << '\n';
                     }
+                }
+            }
+        }
+
+        if (command == "withdraw")
+        {
+            for (size_t i = 0; i < moshtari.size(); i++)
+            {
+                if (username == moshtari[i].get_username() && moshtari[i].get_ips(ip))
+                {
+
+                    try
+                    {
+                        moshtari[i].check_expiration_date_for_transaction();
+                        renewal(moshtari, i);
+                    }
+                    catch (const std::exception &e)
+                    {
+                        e.what();
+                    }
+
+                    unsigned int wthdraw = convert(s);
+                    withdraw(moshtari[i], wthdraw);
                 }
             }
         }

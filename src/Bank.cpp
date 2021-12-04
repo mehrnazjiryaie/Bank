@@ -265,12 +265,17 @@ customer check_existance_account(vector<customer> &moshtari, string s)
         if (moshtari[i].get_username() == s)
         {
             return moshtari[i];
-            //throw invalid_argument("The destination account does not exist with these username or ip!\n");
+            // throw invalid_argument("The destination account does not exist with these username or ip!\n");
         }
         else
         {
-            cout <<"fuch\n";
+            cout << "fuch\n";
             return moshtari[i];
         }
     }
+}
+
+void withdraw(customer &moshtari, unsigned int &s)
+{
+    moshtari.set_balance(moshtari.get_balance() - s);
 }

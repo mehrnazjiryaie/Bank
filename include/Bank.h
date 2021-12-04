@@ -15,10 +15,11 @@ private:
     unsigned long int balance;    // account balance
     std::string ip;               // first ip of account
     std::vector<std::string> ips; // account ips
-    class transaction;            // account transaction
+    // class transaction;           // account transaction
 public:
     customer(std::string, std::string);
     ~customer();
+    class transaction; // account transaction
     std::string get_username();
     void set_ip(std::string);
     void ip_validation(std::string);
@@ -38,6 +39,7 @@ unsigned int convert(char &);
 void add_ip(std::string, std::vector<customer> &, std::string);
 void renewal(std::vector<customer> &, size_t &);
 customer check_existance_account(std::vector<customer> &, std::string);
+void withdraw(customer &, unsigned int &);
 
 // class MyException : public std::exception
 // {

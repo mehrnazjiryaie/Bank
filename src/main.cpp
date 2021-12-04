@@ -7,18 +7,14 @@
 
 using namespace std;
 
-void Clear()
-{
-    cout << "\x1B[2J\x1B[H";
-}
-
 // std::vector<std::string> usernames; // a vector for save all of accounts names
 // bool is_Empty = true;
 
 int main(int argc, char const *argv[])
 {
     cout << "WELCOME TO GHOZAH BANK\n"; //بانك قُــزَه
-    vector<customer> moshtari;          // costumer is a class(user defined type)
+    vector<customer> moshtari;          // a vector that save the accounts
+    vector<transaction> taraconesh;     // a vector that save the transactions
     // std::vector<customer>::iterator it;
 
     while (1)
@@ -57,23 +53,24 @@ int main(int argc, char const *argv[])
             i++;
         }
 
-        i++;
-
         string s = "";
-        while (str[i] != ':' && str[i])
+        if (str[i])
         {
-            s += str[i];
             i++;
+            while (str[i] != ':' && str[i])
+            {
+                s += str[i];
+                i++;
+            }
+            cout << "s :" << s << endl;
         }
-        cout << "s :" << s << endl;
-
-        i++;
 
         unsigned int transfer_money = 0;
         string payment = "";
 
         if (str[i])
         {
+            i++;
             while (str[i])
             {
                 payment += str[i];
@@ -86,6 +83,7 @@ int main(int argc, char const *argv[])
 
         if (command == "create")
         {
+            
             try
             {
                 customer account(username, ip); // create an object of class customer
@@ -98,7 +96,7 @@ int main(int argc, char const *argv[])
                 account.set_expiration_date(exp);
                 moshtari.push_back(account);
                 cout << "Your account has created successfully!!\n";
-
+                cin.ignore();
                 // usernames.push_back(username);
             }
             catch (int num)
@@ -120,6 +118,7 @@ int main(int argc, char const *argv[])
             {
                 cout << "Invalid ip - ip must include for parts and exactly 3 dots.\n";
             }
+            
         }
 
         if (command == "add_ip")
@@ -140,13 +139,10 @@ int main(int argc, char const *argv[])
 
         if (command == "renewal")
         {
-            cout << "hello\n";
             for (size_t i = 0; i < moshtari.size(); i++)
             {
-                cout << "hello\n";
                 if (username == moshtari[i].get_username() && moshtari[i].get_ips(ip))
                 {
-                    cout << "hello\n";
                     try
                     {
                         moshtari[i].check_expiration_date_for_renewal();
@@ -156,10 +152,6 @@ int main(int argc, char const *argv[])
                     {
                         std::cerr << e.what() << '\n';
                     }
-                }
-                else
-                {
-                    cout << "There is no such account with this username or ip!\n";
                 }
             }
         }
@@ -185,10 +177,6 @@ int main(int argc, char const *argv[])
 
                     moshtari[i].set_balance(moshtari[i].get_balance() + added_balance);
                 }
-                else
-                {
-                    cout << "There is no such account with this username or ip!\n";
-                }
             }
         }
 
@@ -212,15 +200,12 @@ int main(int argc, char const *argv[])
                     {
                         customer destination_account = check_existance_account(moshtari, s);
                         transaction transition(moshtari[i], destination_account, transfer_money);
+                        taraconesh.push_back(transition);
                     }
-                    catch (const std::exception &e)
+                    catch (const std::invalid_argument &e)
                     {
                         std::cerr << e.what() << '\n';
                     }
-                }
-                else
-                {
-                    cout << "The beginning account doesn`t exist with these username or ip!\n";
                 }
             }
         }

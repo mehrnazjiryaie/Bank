@@ -262,12 +262,14 @@ customer check_existance_account(vector<customer> &moshtari, string s)
 {
     for (size_t i = 0; i < moshtari.size(); i++)
     {
-        if (!(moshtari[i].get_username() != s))
+        if (moshtari[i].get_username() == s)
         {
-            throw invalid_argument("The destination account does not exist with these username or ip!\n");
+            return moshtari[i];
+            //throw invalid_argument("The destination account does not exist with these username or ip!\n");
         }
         else
         {
+            cout <<"fuch\n";
             return moshtari[i];
         }
     }
